@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeAts</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.3/lottie.min.js"></script>
+    <style>
+        a{
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+        /* .hero{
+            background-color: rgb(224, 232, 241);
+            color: black;
+        }
+        .righthero{
+            color: black;
+        } */
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="navbar">
+                <div class="leftNav">
+                    ResumeAts
+                </div>
+                <div class="rightNav">
+                    <ul class="menu">
+                        <li class="menuli"><a href="/" class="navLinks">Home</a></li>
+                        <li class="menuli">Builder</li>
+                        <li class="menuli"><a href="/analyzer" class="navLinks">Analyzer</a></li>
+                        <li class="menuli">About Us</li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class="hero">
+            <div class="lefthero">
+                <h1>LET'S GET YOU HIRED</h1>
+                <p>Create a Professional, job-ready resume in minutes with Resume Builder</p>
+                <button class="btn">CREATE MY RESUME NOW</button>
+            </div>
+            <div class="righthero">
+                <!-- <img src="{% static 'ss.gif'%}" alt="error" id="heroimg"> -->
+            </div>
+        </div>
+    </section>
+    <script>
+        // Load the animation
+        var animation = lottie.loadAnimation({
+            container: document.getElementsByClassName('righthero'), // the DOM element that will contain the animation
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: "{% static 'animations/noty.json' %}" // the path to the Lottie JSON file
+        });
+    </script>
+</body>
+</html>

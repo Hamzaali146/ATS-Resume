@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+.navbar{
+    /* color: hotpink; */
+    display: flex;
+    height: 65px;
+    /* background-color: #1f2833; */
+    background-color: #3A0CA3;
+    color: #66fcf1;
+}
+.leftNav{
+    font-size: 18px;
+    width: 50vw;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 30px;
+    font-weight: 500;
+}
+.rightNav{
+    width: 50vw;
+    /* background-color: saddlebrown; */
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-right: 30px;
+    font-weight: 450;
+}
+.menu{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+.hero{
+    text-align: center;
+    /* margin-top:20px; */
+    background-color: #0b0c10;
+    height: 80vh;
+    display: flex;
+}
+.lefthero{
+    /* color: white; */
+    display: flex;
+    width: 40%;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 100px;
+    gap: 6px;
+}
+.lefthero > h1{
+    font-size: 38px;
+    font-size: 38px;
+    color: #66fcf1;
+}
+.lefthero >p{
+    line-height: 20px;
+    color: #c5c6c7;
+}
+.btn{
+    background-color: #1f2833;
+    padding: 12px 20px 12px 20px;
+    border: none;
+    border-radius: 22px;
+    /* box-shadow: ; */
+    box-shadow: 2px -2px 4px #66fcf1;
+
+    color: #66fcf1;
+    font-weight: 500;
+    cursor: pointer;
+}
+.righthero{
+    display: flex;
+    
+    /* height: 300px; */
+    /* width: 300px; */
+    justify-content: left;
+    align-items: center;
+    width: 60%;
+    height: 80%;
+    padding: 35px 0 0 100px;
+}
+/* .heroimage{
+    background: url('ss.gif') 0 0;
+    background-repeat:no-repeat;
+    background-size: contain;
+    width: 50%;
+    height: 50%;
+} */
+#heroimg{
+    width: 420px;
+    height: 380px;
+}
+
+a{
+    color: #66fcf1;
+    text-decoration: none;
+    /* font-size: 15px; */
+}

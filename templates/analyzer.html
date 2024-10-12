@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline';"> -->
+    <title>Analyzer</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="{% static 'analyzer.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="navbar">
+                <div class="leftNav">
+                    ResumeAts
+                </div>
+                <div class="rightNav">
+                    <ul class="menu">
+                        <li class="menuli"><a href="/" class="navLinks">Home</a></li>
+                        <li class="menuli">Builder</li>
+                        <li class="menuli"><a href="/analyzer" class="navLinks">Analyzer</a></li>
+                        <li class="menuli">About Us</li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="content">
+        <div class="palette-section">
+            <!-- Color palette side section -->
+            <div class="palette">
+                <ul>
+                    <li class="color-swatch" style="background-color: #F9A8D4;"></li>
+                    <li class="color-swatch" style="background-color: #D4F1F4;"></li>
+                    <li class="color-swatch" style="background-color: #E5E5E5;"></li>
+                    <li class="color-swatch" style="background-color: #FFE066;"></li>
+                    <li class="color-swatch" style="background-color: #FF6363;"></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mainanaly">
+            <div class="analy-section">
+                <h1>Analyze Your Resume through Job Description</h1>
+                <form action="" class="analy-form">
+                    <!-- Resume Upload -->
+                    <label for="resume">Upload Resume:</label> 
+                    <input type="file" id="resume" name="resume"> <br>
+
+                    <!-- Job Description Input -->
+                    <label for="jobDesc">Job Description:</label>
+                    <textarea id="jobDesc" name="jobDesc" rows="4" placeholder="Enter the job description"></textarea> <br>
+
+                    <button type="submit" class="submit-btn" >Analyze Now</button>
+                </form>
+            </div>
+            <div class="visual-section">
+                <h3>Generating your magic!</h3>
+                <div style="display: none;" id="loading-circle" class="load"></div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.querySelector('.analy-form').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    await dabao();
+});
+
+        async function dabao() {
+            // alert("working")
+            const jobDesc = document.getElementById('jobDesc').value;
+            const resume = document.getElementById('resume');
+            const blogContent = document.querySelector('.visual-section');
+            const formData = new FormData()
+            if(resume && jobDesc){
+                formData.append("desc",jobDesc)
+                formData.append("pdfFile",resume.files[0])
+                document.getElementById('loading-circle').style.display = 'block';
+                blogContent.innerHTML = ""
+                try{
+                // alert("dsds")
+                const response = await fetch("/generate",{
+                    method:"POST",
+                    body:formData
+                })
+                // alert(response)
+                if(response.ok){
+                    const data = await response.json();
+                    // alert(data)
+                    blogContent.innerHTML = data.content
+                    // alert("Sucessfully send data:",data.content)
+                }else{
+                    blogContent.innerHTML = "Error processing file.";
+                    console.error('Error Sending File',response.statusText)
+                }
+                document.getElementById('loading-circle').style.display = 'none';
+            
+            } catch(error){
+                console.error("Fetch Error:",error)
+            }
+
+            } else{
+                alert("upload file and text")
+            }
+            
+            // alert(formData.text())
+            // alert("dsdsd")
+            
+        } 
+            // alert()
+        
+        // document.getElementsByClassName('submit-btn').addEventListener('click', async () => {
+
+        //     const jobDesc = document.getElementById('jobDesc').value;
+        //     const resume = document.getElementById('resume');
+        //     const blogContent = document.getElementsByClassName('visual-section');
+            
+            
+            // if(jobDesc && resume) {
+            //     // document.getElementById('loading-circle').style.display = 'block';
+            //     blogContent.innerHTML = ''; // Clear previous content
+
+            //     const endpointUrl = '/generate-blog';
+                
+            //     try {
+            //         const response = await fetch(endpointUrl, {
+            //             method: 'POST',
+            //             headers: {
+            //                 'Content-Type': 'application/json',
+            //             },
+            //             body: JSON.stringify({ jobDescription: jobDesc, resumeCon : resume })
+            //         });
+
+            //         const data = await response.json();
+
+            //         blogContent.innerHTML = data.content;
+
+            //     } catch (error) {
+            //         console.error("Error occurred:", error);
+            //         alert("Something went wrong. Please try again later.");
+                    
+            //     }
+            //     document.getElementById('loading-circle').style.display = 'none';
+            // } else {
+            //     alert("Please enter a YouTube link.");
+            // }
+
+            
+        // });
+    </script>
+</body>
+</html>

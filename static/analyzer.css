@@ -1,0 +1,115 @@
+/* General styles */
+body {
+    background-color: #F5F5F5;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #E5E5E5;
+    background-color: #3A0CA3;
+}
+
+.menu {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.content {
+    display: flex;
+}
+
+.palette-section {
+    width: 10%;
+    background-color: #FAF9F6;
+    padding: 20px;
+}
+
+.palette ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.color-swatch {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.mainanaly {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    padding: 40px;
+    background-color: #FFFFFF;
+}
+
+.analy-section {
+    width: 60%;
+}
+
+.analy-section h1 {
+    font-size: 32px;
+    color: #3A0CA3;
+    padding-bottom: 12px;
+}
+
+.analy-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.analy-form label {
+    font-size: 16px;
+    color: #333;
+}
+
+.analy-form input[type="file"],
+.analy-form textarea {
+    padding: 10px;
+    border: 2px solid #C5C6C7;
+    border-radius: 8px;
+    width: 80%;
+}
+
+.analy-form textarea {
+    resize: none;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #3A0CA3;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.visual-section {
+    width: 35%;
+    background-color: #EDF2F4;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-y: scroll;
+    max-height: 500px;
+    /* overflow: hidden; */
+}
+
+.visual-section h3 {
+    color: #3A0CA3;
+}
