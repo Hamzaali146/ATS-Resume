@@ -19,7 +19,7 @@ body {
 .menu {
     list-style-type: none;
     display: flex;
-    gap: 20px;
+    gap: 3px;
 }
 
 .menu li a {
