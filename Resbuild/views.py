@@ -26,6 +26,9 @@ def signin(request):
 def analyzer(request):
     return render(request,'analyzer.html')
 
+def builder(request):
+    return render(request,'res_select.html')
+
 @csrf_exempt
 def getText(request):
     if request.method == 'POST':

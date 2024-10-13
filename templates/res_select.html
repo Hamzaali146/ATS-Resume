@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'res_select.css' %}"
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="navbar">
+                <div class="leftNav">
+                    ResumeAts
+                </div>
+                <div class="rightNav">
+                    <ul class="menu">
+                        <li class="menuli"><a href="/" class="navLinks">Home</a></li>
+                        <li class="menuli"><a href="/builder" class="navLinks">Builder</a></li>
+                        <li class="menuli"><a href="/analyzer" class="navLinks">Analyzer</a></li>
+                        <li class="menuli">About Us</li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class="intro">
+            <h1>Resume Builder</h1>
+            <p>Provide your information and generate an awesome resume!!</p>
+        </div>
+        <p id="text">Select any template of your choice</p>
+        <div class="tempspack">
+        <div class="templates">
+            <div class="col" id="col1">
+                <div class="cv_box">
+                <img class="cv_img" id="temp1" src="{% static 'images/Classic_Elegance.jpg' %}" alt="">
+                <p>Classic Elegance</p>
+            </div>
+
+            <div  class="cv_box">
+                <img class="cv_img" id="temp2"  src="{% static 'images/Bold_Statement.jpg' %}" alt="">
+                <p>Bold Statement</p>
+            </div>
+
+            <div  class="cv_box">
+                <img class="cv_img" id="temp3"  src="{% static 'images/Minamilist_focus.jpg' %}" alt="">
+                <p>Minimalist Focus</p>
+            </div>
+        </div>
+            <div class="col" id="col2">
+                <div class="cv_box">
+                <img class="cv_img" id="temp1" src="{% static 'images/creative_flair.jpg' %}" alt="">
+                <p>Creative flair</p>
+            </div>
+
+            <div  class="cv_box">
+                <img class="cv_img" id="temp2"  src="{% static 'images/Tech_Savvy.jpg' %}" alt="">
+                <p>Tech Savvy</p>
+            </div>
+
+            <div  class="cv_box">
+                <img class="cv_img" id="temp3"  src="{% static 'images/Modern_Edge.jpg' %}" alt="">
+                <p>Modern Edge</p>
+            </div>
+        </div>
+        
+        <button class="button_clk">Show more</button>
+        </div>
+    </div>
+        
+
+    </section>
+    <footer>
+        <div class="footer">All rights Reserved | Powered By theboys &copy;</div>
+    </footer>
+ 
+</body>
+</html>
