@@ -45,7 +45,7 @@ body{
 .menu{
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 3px;
     /* color: aqua; */
     text-decoration: none;
     
@@ -164,3 +164,45 @@ p{
     color: #333;
     font-size: 17px;
 }
+
+.link-71 {
+    /* color: #ffffff; */
+    /* font-size: 20px; */
+    /* text-decoration: none; */
+    padding: 5px 10px;
+    /* margin: 0 5px; */
+    position: relative;
+    display: inline-block;
+  }
+  
+  .link-71::before,
+  .link-71::after {
+    content: "";
+    position: absolute;
+    display: block;
+    border: 0px solid transparent;
+    width: 0%;
+    height: 0%;
+    transition: all 0.3s ease;
+  }
+  
+  .link-71::after {
+    top: 0;
+    left: 0;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+  }
+  
+  .link-71::before {
+    right: 0;
+    bottom: 0;
+    border-bottom: 2px solid transparent;
+    border-right: 2px solid transparent;
+  }
+  
+  .link-71:hover::before,
+  .link-71:hover::after {
+    width: 10px;
+    height: 10px;
+    border-color: #fff;
+  }
