@@ -59,7 +59,7 @@ body {
 }
 
 .analy-section {
-    width: 60%;
+    width: 50%;
 }
 
 .analy-section h1 {
@@ -98,10 +98,11 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: 456px;
 }
 
 .visual-section {
-    width: 35%;
+    width: 45%;
     background-color: #EDF2F4;
     padding: 20px;
     border-radius: 10px;
