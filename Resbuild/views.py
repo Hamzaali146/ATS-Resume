@@ -23,6 +23,9 @@ def index(request):
 def signin(request):
     return render(request,'signin.html')
 
+def builderform(request):
+    return render(request,'input.html')
+
 def analyzer(request):
     return render(request,'analyzer.html')
 

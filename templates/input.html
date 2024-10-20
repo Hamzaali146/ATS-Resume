@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="{% static 'input.css' %}" />
+    <link rel="stylesheet" href="{% static 'index.css' %}" />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    /> -->
+    <style>
+      a{
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+        .btnLink{
+            text-decoration: none;
+            color: #3A0CA3;
+            font-weight: 600;
+            font-size: 14px;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- <header>
+      <nav>
+        <div class="navbar">
+          <div class="leftNav">ResumeAts</div>
+          <div class="rightNav">
+            <ul class="menu">
+              <li class="menuli">Home</li>
+              <li class="menuli">Service</li>
+              <li class="menuli">Blogs</li>
+              <li class="menuli">About Us</li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header> -->
+    <header>
+      <nav>
+          <div class="navbar">
+              <div class="leftNav">
+                  ResumeAts
+                  <!-- <img src="{% static 'images/logoVar2.png' %}" alt=""> -->
+              </div>
+              <div class="rightNav">
+                  <ul class="menu">
+                      <li class="menuli link-71"><a href="/" class="navLinks">Home</a></li>
+                      <li class="menuli link-71"><a href="/builder" class="navLinks">Builder</a></li>
+                      <li class="menuli link-71"><a href="/analyzer" class="navLinks">Analyzer</a></li>
+                      <li class="menuli link-71">About Us</li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+  </header>
+
+    <div class="main">
+      <h2 class="form-title">Personal Details</h2>
+      <div class="form">
+        <label>Job Title:</label>
+        <input type="text" placeholder="The role you want" /><br />
+
+        <label>First Name:</label>
+        <input type="text" placeholder="Enter your first name" /><br />
+
+        <label>Last Name:</label>
+        <input type="text" placeholder="Enter your last name" /><br />
+
+        <label>Email:</label>
+        <input type="email" placeholder="Enter your email" /><br />
+
+        <label>Phone:</label>
+        <input type="tel" placeholder="Enter your phone number" /><br />
+
+        <label>Country:</label>
+        <input type="text" placeholder="Enter your country" /><br />
+
+        <label>City:</label>
+        <input type="text" placeholder="Enter your city" /><br />
+
+        <div class="professional-summary">
+          <h3>Professional Summary</h3>
+          <textarea
+            rows="4"
+            placeholder="Curious science teacher with 8+ years..."
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Education Section -->
+      <div class="section">
+        <h3>Education</h3>
+        <p>
+          A varied education on your resume sums up the value that your
+          learnings and background will bring to the job.
+        </p>
+        <button class="add-btn" onclick="addEducation()">
+          + Add education
+        </button>
+        <div id="education-section"></div>
+      </div>
+
+      <!-- Skills Section -->
+      <div class="section">
+        <h3>Skills</h3>
+        <p>Add relevant skills that will enhance your chances for the job.</p>
+        <button class="add-btn" onclick="addSkill()">+ Add skill</button>
+        <div id="skills-section"></div>
+      </div>
+
+      <!-- Add Section -->
+      <div class="section">
+        <h3>Add Section</h3>
+        <p>Select a section to add additional details to your resume.</p>
+        <div class="dynamic-section">
+          <button class="section-btn" onclick="addCourses()">Courses</button>
+          <button class="section-btn" onclick="addLanguages()">
+            Languages
+          </button>
+          <button class="section-btn" onclick="addInternships()">
+            Internships
+          </button>
+          <button class="section-btn" onclick="addProjects()">Projects</button>
+        </div>
+        <div id="dynamic-sections"></div>
+      </div>
+
+      <button type="submit" class="btn">Next</button>
+    </div>
+
+    <script src="{% static 'js\input.js' %}"></script>
+  </body>
+</html>

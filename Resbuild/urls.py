@@ -5,5 +5,6 @@ urlpatterns = [
     path('signin',views.signin,name = 'signin'),
     path('analyzer',views.analyzer,name = 'analyzer'),
     path('generate',views.getText,name = 'getText'),
-    path('builder',views.builder,name = 'builder')
+    path('builder',views.builder,name = 'builder'),
+    path('builderform',views.builderform,name = 'builderform'),
 ]

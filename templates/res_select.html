@@ -34,33 +34,33 @@
         <div class="tempspack">
         <div class="templates">
             <div class="col" id="col1">
-                <div class="cv_box">
+                <div class="cv_box" onclick="resGenerate('classic')">
                 <img class="cv_img" id="temp1" src="{% static 'images/Classic_Elegance.jpg' %}" alt="">
                 <p>Classic Elegance</p>
             </div>
 
-            <div  class="cv_box">
+            <div  class="cv_box" onclick="resGenerate('bold')">
                 <img class="cv_img" id="temp2"  src="{% static 'images/Bold_Statement.jpg' %}" alt="">
                 <p>Bold Statement</p>
             </div>
 
-            <div  class="cv_box">
+            <div  class="cv_box" onclick="resGenerate('minimalist')">
                 <img class="cv_img" id="temp3"  src="{% static 'images/Minamilist_focus.jpg' %}" alt="">
                 <p>Minimalist Focus</p>
             </div>
         </div>
-            <div class="col" id="col2">
+            <div class="col" id="col2" onclick="resGenerate('creative')">
                 <div class="cv_box">
                 <img class="cv_img" id="temp1" src="{% static 'images/creative_flair.jpg' %}" alt="">
                 <p>Creative flair</p>
             </div>
 
-            <div  class="cv_box">
+            <div  class="cv_box" onclick="resGenerate('savvy')">
                 <img class="cv_img" id="temp2"  src="{% static 'images/Tech_Savvy.jpg' %}" alt="">
                 <p>Tech Savvy</p>
             </div>
 
-            <div  class="cv_box">
+            <div  class="cv_box" onclick="resGenerate('modern')">
                 <img class="cv_img" id="temp3"  src="{% static 'images/Modern_Edge.jpg' %}" alt="">
                 <p>Modern Edge</p>
             </div>
@@ -75,6 +75,6 @@
     <footer>
         <div class="footer">All rights Reserved | Powered By theboys &copy;</div>
     </footer>
- 
+    <script src="{% static 'res.js' %}"></script>
 </body>
 </html>
