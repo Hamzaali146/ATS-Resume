@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+</head>
+<body>
+    <h1>Pipeline testcase!</h1>
+    <h3 style="color: rgb(43, 223, 43);">Test case is Successfull theboys :)</h3>
+    <p>your name is : {{fname}} {{lname}} 
+        {% if fname is None %} 
+        not fname
+        {% endif %}
+    </p>
+    <p>email is : {{email}}</p>
+    <p>role : {{role}}</p>
+    <p>you live in  {{city}},{{country}}</p>
+    <p>degree is {{degree}}</p>
+    <!-- <p>degree is {{skill}}</p> -->
+    {% for i in education %}
+        <p>degree: {{i.degree}}</p>
+        <p>institution: {{i.institution}}</p>
+        <p>date: {{i.date}}</p>
+    {% endfor %}
+</body>
+</html>

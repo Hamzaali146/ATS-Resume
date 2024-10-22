@@ -28,21 +28,6 @@
     </style>
   </head>
   <body>
-    <!-- <header>
-      <nav>
-        <div class="navbar">
-          <div class="leftNav">ResumeAts</div>
-          <div class="rightNav">
-            <ul class="menu">
-              <li class="menuli">Home</li>
-              <li class="menuli">Service</li>
-              <li class="menuli">Blogs</li>
-              <li class="menuli">About Us</li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header> -->
     <header>
       <nav>
           <div class="navbar">
@@ -63,32 +48,34 @@
   </header>
 
     <div class="main">
+      <form method="POST" action="testcase">
+      {% csrf_token %}
       <h2 class="form-title">Personal Details</h2>
       <div class="form">
         <label>Job Title:</label>
-        <input type="text" placeholder="The role you want" /><br />
+        <input name="role" type="text" placeholder="The role you want" /><br />
 
         <label>First Name:</label>
-        <input type="text" placeholder="Enter your first name" /><br />
+        <input name="fname" type="text" placeholder="Enter your first name" /><br />
 
         <label>Last Name:</label>
-        <input type="text" placeholder="Enter your last name" /><br />
+        <input name="lname" type="text" placeholder="Enter your last name" /><br />
 
         <label>Email:</label>
-        <input type="email" placeholder="Enter your email" /><br />
+        <input name="email" type="email" placeholder="Enter your email" /><br />
 
         <label>Phone:</label>
-        <input type="tel" placeholder="Enter your phone number" /><br />
+        <input name="phone" type="tel" placeholder="Enter your phone number" /><br />
 
         <label>Country:</label>
-        <input type="text" placeholder="Enter your country" /><br />
+        <input name="country" type="text" placeholder="Enter your country" /><br />
 
         <label>City:</label>
-        <input type="text" placeholder="Enter your city" /><br />
+        <input name="city" type="text" placeholder="Enter your city" /><br />
 
         <div class="professional-summary">
           <h3>Professional Summary</h3>
-          <textarea
+          <textarea name="summary"
             rows="4"
             placeholder="Curious science teacher with 8+ years..."
           ></textarea>
@@ -97,12 +84,13 @@
 
       <!-- Education Section -->
       <div class="section">
+        <input type="hidden" id="educationCounter" name="educationCounter" value="1">
         <h3>Education</h3>
         <p>
           A varied education on your resume sums up the value that your
           learnings and background will bring to the job.
         </p>
-        <button class="add-btn" onclick="addEducation()">
+        <button type="button" class="add-btn" onclick="addEducation()">
           + Add education
         </button>
         <div id="education-section"></div>
@@ -133,7 +121,8 @@
         <div id="dynamic-sections"></div>
       </div>
 
-      <button type="submit" class="btn">Next</button>
+      <button type="submit" class="btn">Generate Resume</button>
+    </form>
     </div>
 
     <script src="{% static 'js\input.js' %}"></script>

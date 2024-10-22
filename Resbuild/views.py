@@ -33,6 +33,30 @@ def builder(request):
     return render(request,'res_select.html')
 
 @csrf_exempt
+def test(request):
+    fname = request.POST['fname']
+    lname = request.POST['lname']
+    email = request.POST['email']
+    country = request.POST['country']
+    city = request.POST['city']
+    role = request.POST['role']
+    educationCounter = int(request.POST["educationCounter"])
+    print(f"education counter will be {educationCounter}")
+    education_entries = []
+    for i in range(1, educationCounter+1):  
+            degree = request.POST.get(f'degree_{i}', "no degree")
+            institution = request.POST.get(f'institution_{i}', "no inst")
+            date = request.POST.get(f'date_{i}', "no date")
+            if degree and institution and date:
+                education_entries.append({
+                    'degree': degree,
+                    'institution': institution,
+                    'date': date,
+                })
+    print(f"number of education entries {education_entries}" )
+    return render(request,'resume.html',{'lname':lname,'email':email,'country':country,'city':city,'role':role,'education':education_entries})
+
+@csrf_exempt
 def getText(request):
     if request.method == 'POST':
         try:

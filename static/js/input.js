@@ -1,3 +1,9 @@
+let educationCounter = 0;
+let skillsCounter = 0;
+let coursesCounter = 0;
+let languagesCounter = 0;
+let internshipsCounter = 0;
+let projectsCounter = 0;
 function createDeleteButton(parentDiv) {
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
@@ -10,22 +16,24 @@ function createDeleteButton(parentDiv) {
 
   // Add dynamic education fields
   function addEducation() {
+    educationCounter++; 
     const educationSection = document.getElementById("education-section");
     const div = document.createElement("div");
     div.classList.add("education-entry");
-    div.classList.add("btn");
     div.innerHTML = `
-          <label>Degree:</label>
-          <input type="text" placeholder="Enter your degree"><br>
-          <label>Institution:</label>
-          <input type="text" placeholder="Enter the institution"><br>
-          <label>Date:</label>
-          <input type="text" placeholder="Enter the dates"><br><br>
-      `;
-    const deleteBtn = createDeleteButton(div); // Create delete button
+        <label>Degree:</label>
+        <input type="text" name="degree_${educationCounter}" placeholder="Enter your degree"><br>
+        <label>Institution:</label>
+        <input type="text" name="institution_${educationCounter}" placeholder="Enter the institution"><br>
+        <label>Date:</label>
+        <input type="text" name="date_${educationCounter}" placeholder="Enter the dates"><br><br>
+    `;
+    const deleteBtn = createDeleteButton(div);
     div.appendChild(deleteBtn);
     educationSection.appendChild(div);
-  }
+  
+    document.getElementById("educationCounter").value = educationCounter;
+}
 
   // Add dynamic skills fields
   function addSkill() {
