@@ -37,85 +37,96 @@ function createDeleteButton(parentDiv) {
 
   // Add dynamic skills fields
   function addSkill() {
+    skillsCounter++;
     const skillsSection = document.getElementById("skills-section");
     const div = document.createElement("div");
     div.classList.add("skill-entry");
     div.innerHTML = `
-          <input type="text" placeholder="Enter your skill"><br><br>
+          <input type="text" name="skills_${skillsCounter}" placeholder="Enter your skill"><br><br>
       `;
     const deleteBtn = createDeleteButton(div); // Create delete button
     div.appendChild(deleteBtn);
     skillsSection.appendChild(div);
+    document.getElementById("skillsCounter").value = skillsCounter;
+
   }
 
   // Add dynamic course section
   function addCourses() {
+    coursesCounter++;
     const dynamicSection = document.getElementById("dynamic-sections");
     const div = document.createElement("div");
     div.classList.add("course-entry");
     div.innerHTML = `
           <h4>Courses</h4>
           <label>Course Name:</label>
-          <input type="text" placeholder="Enter course name"><br>
+          <input type="text" name="course_${coursesCounter}" placeholder="Enter course name"><br>
           <label>Institution:</label>
-          <input type="text" placeholder="Enter institution"><br>
+          <input type="text" name="institution_${coursesCounter}" placeholder="Enter institution"><br>
           <label>Date:</label>
-          <input type="text" placeholder="Enter completion date"><br><br>
+          <input type="text" name="completiondate_${coursesCounter}" placeholder="Enter completion date"><br><br>
       `;
     const deleteBtn = createDeleteButton(div); // Create delete button
     div.appendChild(deleteBtn);
     dynamicSection.appendChild(div);
+    document.getElementById("coursesCounter").value = coursesCounter;
   }
 
   // Add dynamic languages section
   function addLanguages() {
+    languagesCounter++;
     const dynamicSection = document.getElementById("dynamic-sections");
     const div = document.createElement("div");
     div.classList.add("language-entry");
     div.innerHTML = `
           <h4>Languages</h4>
           <label>Language:</label>
-          <input type="text" placeholder="Enter language"><br>
+          <input type="text" name="language_${languagesCounter}" placeholder="Enter language"><br>
           <label>Proficiency:</label>
-          <input type="text" placeholder="Enter proficiency (e.g., fluent, basic)"><br><br>
+          <input type="text" name="prof_${languagesCounter}" placeholder="Enter proficiency (e.g., fluent, basic)"><br><br>
       `;
     const deleteBtn = createDeleteButton(div); // Create delete button
     div.appendChild(deleteBtn);
     // deleteBtn.className("btn")
     dynamicSection.appendChild(div);
+    document.getElementById("languagesCounter").value = languagesCounter;
   }
 
   // Add dynamic internships section
   function addInternships() {
+    internshipsCounter++;
     const dynamicSection = document.getElementById("dynamic-sections");
     const div = document.createElement("div");
     div.classList.add("internship-entry");
     div.innerHTML = `
           <h4>Internships</h4>
           <label>Company:</label>
-          <input type="text" placeholder="Enter company name"><br>
+          <input type="text" name="company_${internshipsCounter}" placeholder="Enter company name"><br>
           <label>Role:</label>
-          <input type="text" placeholder="Enter role"><br>
+          <input type="text" name="role_${internshipsCounter}"  placeholder="Enter role"><br>
           <label>Date:</label>
-          <input type="text" placeholder="Enter internship dates"><br><br>
+          <input type="text" name="intdate_${internshipsCounter}" placeholder="Enter internship dates"><br><br>
       `;
     const deleteBtn = createDeleteButton(div); // Create delete button
     div.appendChild(deleteBtn);
     dynamicSection.appendChild(div);
+    document.getElementById("internshipsCounter").value = internshipsCounter;
   }
 
   function addProjects() {
+    projectsCounter++;
     const dynamicSection = document.getElementById("dynamic-sections");
     const div = document.createElement("div");
     div.classList.add("project-entry");
     div.innerHTML = `
           <h4>Projects</h4>
           <label>Project Name:</label>
-          <input type="text" placeholder="Enter Project name here"><br>
+          <input type="text" name="project_${projectsCounter}" placeholder="Enter Project name here"><br>
           <label>Description</label>
-          <input type="text" placeholder="Enter Project description"><br>
+          <input type="text" name="projdesc_${projectsCounter}" placeholder="Enter Project description"><br>
       `;
     const deleteBtn = createDeleteButton(div); // Create delete button
     div.appendChild(deleteBtn);
     dynamicSection.appendChild(div);
+    document.getElementById("projectsCounter").value = projectsCounter;
   }

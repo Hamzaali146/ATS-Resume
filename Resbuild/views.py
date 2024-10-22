@@ -41,8 +41,19 @@ def test(request):
     city = request.POST['city']
     role = request.POST['role']
     educationCounter = int(request.POST["educationCounter"])
+    skillsCounter=int(request.POST["skillsCounter"])
+    coursesCounter=int(request.POST["coursesCounter"])
+    languagesCounter=int(request.POST["languagesCounter"])
+    internshipsCounter=int(request.POST["internshipsCounter"])
+    projectsCounter=int(request.POST["projectsCounter"])
+    
     print(f"education counter will be {educationCounter}")
     education_entries = []
+    skill_entries = []
+    courses_entries = []
+    language_entries = []
+    internship_entries = []
+    project_entries = []
     for i in range(1, educationCounter+1):  
             degree = request.POST.get(f'degree_{i}', "no degree")
             institution = request.POST.get(f'institution_{i}', "no inst")
@@ -53,8 +64,51 @@ def test(request):
                     'institution': institution,
                     'date': date,
                 })
+    for i in range(1, skillsCounter+1):  
+            skill = request.POST.get(f'skills_{i}', "no skill")
+            if skill:
+                skill_entries.append({
+                    'skill': skill,
+                })
+    for i in range(1,coursesCounter+1):  
+            course= request.POST.get(f'courses_{i}', "no course")
+            cinstitution = request.POST.get(f'cinstitution_{i}', "no inst")
+            cdate = request.POST.get(f'completiondate_{i}', "no date")
+            if course and cinstitution and cdate:
+                courses_entries.append({
+                    'course': course,
+                    'cinstitution': cinstitution,
+                    'cdate': cdate,
+                })
+    for i in range(1, languagesCounter+1):  
+            language = request.POST.get(f'language_{i}', "no language")
+            proficiency = request.POST.get(f'prof_{i}', "no prof")
+
+            if language and proficiency:
+                language_entries.append({
+                    'language': language,
+                    'proficiency': proficiency,
+                })
+    for i in range(1, internshipsCounter+1):  
+            company = request.POST.get(f'company_{i}', "no company")
+            intinstitution = request.POST.get(f'roll_{i}', "no inst")
+            intdate = request.POST.get(f'intdate_{i}', "no date")
+            if company and intinstitution and intdate:
+                internship_entries.append({
+                    'company': company,
+                    'intinstitution': intinstitution,
+                    'intdate': intdate,
+                })
+    for i in range(1, projectsCounter+1):  
+            project = request.POST.get(f'proj_{i}', "no project")
+            projdesc = request.POST.get(f'projdesc_{i}', "no descp")
+            if project and projdesc:
+                project_entries.append({
+                    'project':project,
+                    'projectdesc': projdesc,
+                })
     print(f"number of education entries {education_entries}" )
-    return render(request,'resume.html',{'lname':lname,'email':email,'country':country,'city':city,'role':role,'education':education_entries})
+    return render(request,'resume.html',{'lname':lname,'email':email,'country':country,'city':city,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries})
 
 @csrf_exempt
 def getText(request):

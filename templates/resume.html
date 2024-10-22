@@ -1,28 +1,60 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resume</title>
-</head>
-<body>
-    <h1>Pipeline testcase!</h1>
-    <h3 style="color: rgb(43, 223, 43);">Test case is Successfull theboys :)</h3>
-    <p>your name is : {{fname}} {{lname}} 
-        {% if fname is None %} 
-        not fname
-        {% endif %}
+    <style>
+        .main{
+            width: 700px;
+            height: 700px;
+            background-color: #FAF9F6;
+            border: 2px solid #3A0CA3;
+            margin: auto;
+            font-family: monospace;
+            text-align: center;
+            border-radius: 20px;
+        }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center;">Pipeline testcase!</h1>
+    <h3 style="color: rgb(43, 223, 43); text-align: center;">Test case is Successfull theboys :)</h3>
+    <div class="main">
+    <p>
+      your name is : {{fname}} {{lname}}
     </p>
     <p>email is : {{email}}</p>
     <p>role : {{role}}</p>
-    <p>you live in  {{city}},{{country}}</p>
+    <p>you live in {{city}},{{country}}</p>
     <p>degree is {{degree}}</p>
     <!-- <p>degree is {{skill}}</p> -->
     {% for i in education %}
-        <p>degree: {{i.degree}}</p>
-        <p>institution: {{i.institution}}</p>
-        <p>date: {{i.date}}</p>
+    <p>degree: {{i.degree}}</p>
+    <p>institution: {{i.institution}}</p>
+    <p>date: {{i.date}}</p>
+    {% endfor %} 
+    {% for i in skill %}
+    <p>skill: {{i.skill}}</p>
+    {% endfor %} 
+    {% for i in courses %}
+    <p>course: {{i.course}}</p>
+    <p>institution: {{i.cinstitution}}</p>
+    <p>date: {{i.cdate}}</p>
     {% endfor %}
-</body>
+    {% for i in languages %}
+    <p>language: {{i.language}}</p>
+    <p>proficiency: {{i.proficiency}}</p>
+    {% endfor %}
+    {% for i in internships %}
+    <p>company: {{i.company}}</p>
+    <p>institution: {{i.intinstitution}}</p>
+    <p>date: {{i.intdate}}</p>
+    {% endfor %} {% for i in projects %}
+    <p>project: {{i.project}}</p>
+    <p>projectdescp: {{i.projectdesc}}</p>
+    {% endfor %}
+</div>
+  </body>
 </html>
