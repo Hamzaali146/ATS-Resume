@@ -1,0 +1,144 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 1in;
+        }
+
+        h1, h2 {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid black;
+            margin: 10px 0;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            border-bottom: 2px solid black;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Name and Contact Info -->
+    <div class="center-text">
+        <h1>{{fname}} {{lname}}</h1>
+        <p>{{city}}, {{country}} | Phone: {{phone}}| Email: {{email}}</p>
+    </div>
+
+    <hr>
+
+    <!-- Professional Summary -->
+    <h2>Professional Summary</h2>
+    <p>
+        {{summary}}
+    </p>
+
+    <hr>
+
+    <!-- Professional Experience -->
+    <h2>Professional Experience</h2>
+
+    {% for i in internships %}
+    <div>
+        <p><span class="bold">{{i.role}}, {{i.company}}</span> <span class="right">{{i.sintdate}} - {{i.lintdate}}</span></p>
+        <div class="clear"></div>
+        <p>{{i.intdesc}}</p>
+    </div>
+    {{ % endfor%}}
+
+    <hr>
+
+    <!-- Education -->
+    <h2>Education</h2>
+    {% for i in education%}
+    <p>
+        <span class="bold">{{i.degree}}</span> 
+        <span class="right">{{i.date}}</span>
+    </p>
+    <div class="clear"></div>
+    <p>{{i.institution}}</p>
+    <p>GPA: {{i.grade}}</p>
+    {% endfor %}
+
+    <hr>
+
+    <!-- Skills -->
+    <h2>Skills</h2>
+    {% for i in skills %}
+
+    <ul>
+        
+        <li>{{i.skill}}</li>
+
+    </ul>
+    {% endfor %}
+
+    <hr>
+
+    <!-- Certifications -->
+    <h2>Certifications</h2>
+    {% for i in courses %}
+    <ul>
+        
+        <li>{{i.course}}</li>
+        
+    </ul>
+    {% endfor%}
+
+    <hr>
+
+    <!-- Projects -->
+    <h2>Projects</h2>
+
+    {% for i in projects %}
+    <div>
+        <p><span class="bold">{{}}i.project</span> <span class="right"><%= project.year %></span></p>
+        <div class="clear"></div>
+        <p>{{projdesc}}</p>
+    </div>
+    <% }) %>
+
+</body>
+</html>
+

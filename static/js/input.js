@@ -62,7 +62,7 @@ function createDeleteButton(parentDiv) {
           <label>Course Name:</label>
           <input type="text" name="course_${coursesCounter}" placeholder="Enter course name"><br>
           <label>Institution:</label>
-          <input type="text" name="institution_${coursesCounter}" placeholder="Enter institution"><br>
+          <input type="text" name="cinstitution_${coursesCounter}" placeholder="Enter institution"><br>
           <label>Date:</label>
           <input type="text" name="completiondate_${coursesCounter}" placeholder="Enter completion date"><br><br>
       `;
@@ -104,8 +104,13 @@ function createDeleteButton(parentDiv) {
           <input type="text" name="company_${internshipsCounter}" placeholder="Enter company name"><br>
           <label>Role:</label>
           <input type="text" name="role_${internshipsCounter}"  placeholder="Enter role"><br>
-          <label>Date:</label>
-          <input type="text" name="intdate_${internshipsCounter}" placeholder="Enter internship dates"><br><br>
+          <label>Start Date:</label>
+          <input type="text" name="sintdate_${internshipsCounter}" placeholder="Enter start date"><br><br>
+          <label>End Date:</label>
+          <input type="text" name="lintdate_${internshipsCounter}" placeholder="Enter end date"><br><br>
+           <label>Description:</label>
+          <input type="text" name="intdesc_${internshipsCounter}" placeholder="Enter internship description"><br><br>
+
       `;
     const deleteBtn = createDeleteButton(div); // Create delete button
     div.appendChild(deleteBtn);
@@ -122,6 +127,8 @@ function createDeleteButton(parentDiv) {
           <h4>Projects</h4>
           <label>Project Name:</label>
           <input type="text" name="project_${projectsCounter}" placeholder="Enter Project name here"><br>
+          <label>Project Name:</label>
+          <input type="text" name="projectyr_${projectsCounter}" placeholder="Enter Project year"><br>
           <label>Description</label>
           <input type="text" name="projdesc_${projectsCounter}" placeholder="Enter Project description"><br>
       `;

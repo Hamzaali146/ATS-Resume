@@ -37,9 +37,11 @@ def test(request):
     fname = request.POST['fname']
     lname = request.POST['lname']
     email = request.POST['email']
+    phone = request.POST['phone']
     country = request.POST['country']
     city = request.POST['city']
     role = request.POST['role']
+    summary = request.POST['summary']
     educationCounter = int(request.POST["educationCounter"])
     skillsCounter=int(request.POST["skillsCounter"])
     coursesCounter=int(request.POST["coursesCounter"])
@@ -71,7 +73,7 @@ def test(request):
                     'skill': skill,
                 })
     for i in range(1,coursesCounter+1):  
-            course= request.POST.get(f'courses_{i}', "no course")
+            course= request.POST.get(f'course_{i}', "no course")
             cinstitution = request.POST.get(f'cinstitution_{i}', "no inst")
             cdate = request.POST.get(f'completiondate_{i}', "no date")
             if course and cinstitution and cdate:
@@ -91,24 +93,29 @@ def test(request):
                 })
     for i in range(1, internshipsCounter+1):  
             company = request.POST.get(f'company_{i}', "no company")
-            intinstitution = request.POST.get(f'roll_{i}', "no inst")
-            intdate = request.POST.get(f'intdate_{i}', "no date")
-            if company and intinstitution and intdate:
+            intinstitution = request.POST.get(f'role_{i}', "no role")
+            sintdate = request.POST.get(f'sintdate_{i}', "no date")
+            lintdate = request.POST.get(f'lintdate_{i}', "no date")
+            intdesc = request.POST.get(f'intdesc_{i}', "no description")
+            if company and intinstitution and sintdate:
                 internship_entries.append({
                     'company': company,
                     'intinstitution': intinstitution,
-                    'intdate': intdate,
+                    'sintdate': sintdate,
+                    'lintdate': lintdate,
+                    'intdesc':intdesc,
                 })
     for i in range(1, projectsCounter+1):  
-            project = request.POST.get(f'proj_{i}', "no project")
+            project = request.POST.get(f'project_{i}', "no project")
             projdesc = request.POST.get(f'projdesc_{i}', "no descp")
-            if project and projdesc:
+            projectyr= request.POST.get(f'projectyr_{i}',"no date")
+            if project and projdesc and projectyr:
                 project_entries.append({
                     'project':project,
                     'projectdesc': projdesc,
                 })
     print(f"number of education entries {education_entries}" )
-    return render(request,'resume.html',{'lname':lname,'email':email,'country':country,'city':city,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries})
+    return render(request,'classic.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries})
 
 @csrf_exempt
 def getText(request):
