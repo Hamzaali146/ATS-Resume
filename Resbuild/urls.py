@@ -7,5 +7,5 @@ urlpatterns = [
     path('generate',views.getText,name = 'getText'),
     path('builder',views.builder,name = 'builder'),
     path('builderform',views.builderform,name = 'builderform'),
-    path('testcase',views.test,name = 'testcase'),
+    path('resume',views.test,name = 'resume'),
 ]
