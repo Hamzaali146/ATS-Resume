@@ -24,6 +24,8 @@ def signin(request):
     return render(request,'signin.html')
 
 def builderform(request):
+    template = request.GET.get('template', 'default')
+    request.session['template'] = template
     return render(request,'input.html')
 
 def analyzer(request):
@@ -48,6 +50,7 @@ def test(request):
     languagesCounter=int(request.POST["languagesCounter"])
     internshipsCounter=int(request.POST["internshipsCounter"])
     projectsCounter=int(request.POST["projectsCounter"])
+    template = request.session.get('template', 'default')
     
     print(f"education counter will be {educationCounter}")
     education_entries = []
@@ -115,7 +118,7 @@ def test(request):
                     'projectdesc': projdesc,
                 })
     print(f"number of education entries {education_entries}" )
-    return render(request,'classic.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries})
+    return render(request,'classic.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
 
 @csrf_exempt
 def getText(request):
