@@ -1,0 +1,135 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  line-height: 1.6;
+}
+
+.container {
+  width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 32px;
+  color: #333;
+}
+
+.header h2 {
+  font-size: 20px;
+  color: #555;
+}
+
+.header p {
+  font-size: 16px;
+  color: #777;
+}
+
+.header a {
+  color: #0073b1;
+  text-decoration: none;
+}
+
+/* Section */
+.section {
+  margin-bottom: 20px;
+}
+
+.section h3 {
+  font-size: 20px;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/* Skills */
+.skills {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  width: 45%;
+}
+
+.column h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.bar {
+  display: inline-block;
+  height: 8px;
+  background-color: #ddd;
+  vertical-align: middle;
+  margin-left: 10px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.bar::after {
+  content: '';
+  height: 100%;
+  background-color: #4caf50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+}
+
+/* Experience and Projects */
+.job, .project {
+  margin-bottom: 20px;
+}
+
+.job h4, .project h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  color: #333;
+}
+
+ul {
+  margin-left: 20px;
+  list-style-type: disc;
+}
+
+ul li {
+  margin-bottom: 8px;
+  color: #555;
+}
+
+/* Footer */
+p {
+  color: #555;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .container {
+      width: 95%;
+      padding: 10px;
+  }
+
+  .skills {
+      flex-direction: column;
+  }
+
+  .column {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+}

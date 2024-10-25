@@ -1,83 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 1in;
-            color: #36454F;
-        }
-
-        h1 {
-            font-size: 32px;
-            font-weight: bold;
-            margin: 0;
-        }
-
-        h2 {
-            font-size: 20px;
-            font-weight: bold;
-            color: #0070C0;
-            margin-bottom: 10px;
-        }
-
-        .center {
-            text-align: center;
-        }
-
-        hr {
-            margin: 20px 0;
-            border: 1px solid #000;
-        }
-
-        .section-title {
-            font-weight: bold;
-            border-bottom: 2px solid black;
-            margin-bottom: 5px;
-        }
-
-        .two-columns {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .column {
-            width: 48%;
-        }
-
-        .bold {
-            font-weight: bold;
-        }
-
-        .right {
-            float: right;
-        }
-
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        ul li {
-            margin-bottom: 5px;
-        }
-
-        .icon {
-            color: #0070C0;
-            font-family: FontAwesome;
-        }
-
-        .section {
-            margin-bottom: 20px;
-        }
-
-        .clear {
-            clear: both;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/classic.css' %}">
 </head>
 <body>
 

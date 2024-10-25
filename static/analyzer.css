@@ -71,7 +71,7 @@ body {
 .analy-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
 }
 
 .analy-form label {
@@ -93,14 +93,27 @@ body {
 
 .submit-btn {
     padding: 10px 20px;
-    background-color: #3A0CA3;
-    color: #FFF;
-    border: none;
-    border-radius: 5px;
+    /* background-color: #3A0CA3; */
+    /* color: #FFF; */
+    /* border: none; */
+    /* border-radius: 5px; */
     cursor: pointer;
     width: 456px;
+    background-color: transparent;
+    /* padding: 12px 20px 12px 20px; */
+    border: none;
+    border-radius: 22px;
+    color: #3A0CA3;
+    cursor: pointer;
+    transition: all 500ms;
+    border: 1px solid #3A0CA3;
+    font-weight: 600;
+    
 }
-
+.submit-btn:hover{
+    box-shadow: 2px -2px 4px #3A0CA3;
+    transition: all 500ms;
+}
 .visual-section {
     width: 45%;
     background-color: #EDF2F4;
@@ -113,4 +126,27 @@ body {
 
 .visual-section h3 {
     color: #3A0CA3;
+}
+
+
+#loading-circle {
+    display: inline-grid;
+    font-size: 50px;
+}
+
+#loading-circle:before,
+#loading-circle:after {
+    content: "💯"; /* Emoji displayed during loading */
+    grid-area: 1/1; /* Center the emoji in the grid */
+}
+
+#loading-circle:after {
+    animation: l10 1s infinite; /* Apply animation */
+}
+
+@keyframes l10 {
+    to {
+        transform: scale(1.8); /* Increase size */
+        opacity: 0; /* Fade out */
+    }
 }

@@ -54,7 +54,7 @@
                     <label for="jobDesc">Job Description:</label>
                     <textarea id="jobDesc" name="jobDesc" rows="4" placeholder="Enter the job description"></textarea> <br>
 
-                    <button type="submit" class="submit-btn" >Analyze Now</button>
+                    <button type="submit" class="submit-btn" >Analyze Now🚀</button>
                 </form>
             </div>
             <div class="visual-section">
@@ -75,10 +75,15 @@
             const resume = document.getElementById('resume');
             const blogContent = document.querySelector('.visual-section');
             const formData = new FormData()
+            const loadingCircle = document.getElementById('loading-circle');
             if(resume && jobDesc){
                 formData.append("desc",jobDesc)
                 formData.append("pdfFile",resume.files[0])
-                document.getElementById('loading-circle').style.display = 'block';
+                if (loadingCircle) {
+                    alert("shoinh")
+                    loadingCircle.style.display = 'inline-grid';
+                }
+                // document.getElementsByClassName('load')[0].style.display = 'block';
                 blogContent.innerHTML = ""
                 try{
                 // alert("dsds")
@@ -96,7 +101,10 @@
                     blogContent.innerHTML = "Error processing file.";
                     console.error('Error Sending File',response.statusText)
                 }
-                document.getElementById('loading-circle').style.display = 'none';
+                if (loadingCircle) {
+                    loadingCircle.style.display = 'none';
+                }
+                // document.getElementsByClassName('load')[0].style.display = 'none';
             
             } catch(error){
                 console.error("Fetch Error:",error)

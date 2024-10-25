@@ -117,8 +117,13 @@ def test(request):
                     'project':project,
                     'projectdesc': projdesc,
                 })
+
+    if template =="classic":
+        return render(request,'classic.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
+    elif template =="savvy":
+        return render(request,'tech.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
+    return render(request,'tech.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
     print(f"number of education entries {education_entries}" )
-    return render(request,'classic.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
 
 @csrf_exempt
 def getText(request):
@@ -135,16 +140,16 @@ def getText(request):
                 # combined_content = f"Job Description: {jobDesc}\n\nPDF Content: {text}"
                 # print(llm.invoke("Hello"))
                 try:
-                    job_requirements_researcher, resume_swot_analyser, graph_analyser = agentsGo(llm)
-                    research, resume_swot_analysis, graph_analysis = tasksGo(jobDesc, text)
+                    # job_requirements_researcher, resume_swot_analyser, graph_analyser = agentsGo(llm)
+                    # research, resume_swot_analysis, graph_analysis = tasksGo(jobDesc, text)
                     # crew = Crew(
                     #     agents=[job_requirements_researcher, resume_swot_analyser, graph_analyser],
                     #     tasks=[research, resume_swot_analysis, graph_analysis],
-                    #     verbose=1,
+                    #     verbose=1, 
                     #     process=Process.sequential
                     # )
                     # result = crew.kickoff()
-                    result=llm.invoke(f"Hi my name is hamza please analyze my resume {text}")
+                    result=llm.invoke(f"I am giving you a resume which is {text} give me a proper SWOT ANALYSIS. based on the job Description which is {jobDesc} try to gather more inofrmation and cover all areas!")
                     print(result.content)  # Log the result
                     return JsonResponse({'content': result.content.replace("*","")}, status=200)
                 except Exception as e:
