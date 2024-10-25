@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link rel="stylesheet" href="{% static 'css/creative.css' %}">
+   
+</head>
+<body>
+    <div class="resume-container">
+        <header>
+            <h1>{{ fname }} {{ lname }}</h1>
+            <h2>{{ role }}</h2>
+            <div class="box">
+            <p>{{ summary }}</p>
+            <div class="contact-info">
+                <p>Email: {{ email }}</p>
+                <p>Phone: {{ phone }}</p>
+                <p>Location: {{ city }}, {{ country }}</p>
+            </div>
+        </div>
+        </header>
+
+        <section class="work-experience">
+            <h3>Work Experience</h3>
+            {% for internship in internships %}
+                <div class="job-entry">
+                    <h4>{{ internship.intinstitution }}</h4>
+                    <p>{{ internship.company }} | {{ internship.sintdate }} - {{ internship.lintdate }}</p>
+                    <p>{{ internship.intdesc }}</p>
+                </div>
+            {% endfor %}
+        </section>
+
+        <section class="education">
+            <h3>Education</h3>
+            {% for education in education %}
+                <div class="education-entry">
+                    <h4>{{ education.degree }}</h4>
+                    <p>{{ education.institution }} | {{ education.date }}</p>
+                </div>
+            {% endfor %}
+        </section>
+
+        <section class="skills">
+            <h3>Skills</h3>
+            <ul>
+            {% for skill in skill %}
+                <li>{{ skill.skill }}</li>
+            {% endfor %}
+            </ul>
+        </section>
+
+        <section class="projects">
+            <h3>Projects</h3>
+            {% for project in projects %}
+                <div class="project-entry">
+                    <h4>{{ project.project }}</h4>
+                    <p>{{ project.projectdesc }} | {{ project.projectyr }}</p>
+                </div>
+            {% endfor %}
+        </section>
+
+        <section class="languages">
+            <h3>Languages</h3>
+            <ul>
+            {% for language in languages %}
+                <li>{{ language.language }} ({{ language.proficiency }})</li>
+            {% endfor %}
+            </ul>
+        </section>
+
+        <section class="courses">
+            <h3>Courses</h3>
+            {% for course in courses %}
+                <div class="course-entry">
+                    <h4>{{ course.course }}</h4>
+                    <p>{{ course.cinstitution }} | {{ course.cdate }}</p>
+                </div>
+            {% endfor %}
+        </section>
+    </div>
+</body>
+</html>

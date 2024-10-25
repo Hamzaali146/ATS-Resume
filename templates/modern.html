@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume</title>
+  <link rel="stylesheet" href="{% static 'css/modern.css' %}">
+</head>
+<body>
+
+  <div class="resume-container">
+    <header>
+      <h1>{{ fname }} {{ lname }}</h1>
+      <p class="role">{{ role }}</p>
+      <div class="contact-info">
+        <p>Email: {{ email }}</p>
+        <p>Phone: {{ phone }}</p>
+        <p>Location: {{ city }}, {{ country }}</p>
+       
+      </div>
+    </header>
+
+    <section class="summary">
+      <h2>Summary</h2>
+      <hr>
+      <p>{{ summary }}</p>
+    </section>
+
+    <section class="education">
+      <h2>Education</h2>
+      <hr>
+      {% for education in education %}
+        <div class="education-entry">
+          <p>{{ education.degree }} - {{ education.institution }} ({{ education.date }})</p>
+        </div>
+      {% endfor %}
+    </section>
+
+    <section class="work-experience">
+      <h2>Work Experience</h2>
+      <hr>
+      {% for internship in internships%}
+        <div class="job">
+          <h3>{{ internship.intinstitution }}</h3>
+          <p>{{ internship.company }}</p>
+          <p>{{ internship.sintdate }} - {{ internship.lintdate }}</p>
+          <p>{{ internship.intdesc }}</p>
+        </div>
+      {% endfor %}
+    </section>
+
+    <section class="expertise">
+      <h2>Skills</h2>
+      <hr>
+      <ul>
+        {% for skill in skill %}
+          <li>{{ skill.skill }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="projects">
+      <h2>Projects</h2>
+      <hr>
+      {% for project in projects %}
+        <div class="project-entry">
+          <p>{{ project.project }} ({{ project.projectdesc }})</p>
+        </div>
+      {% endfor %}
+    </section>
+
+    <section class="certifications">
+      <h2>Certifications</h2>
+      <hr>
+      <ul>
+        {% for course in courses %}
+          <li>{{ course.course }} - {{ course.cinstitution }} ({{ course.cdate }})</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="languages">
+      <h2>Languages</h2>
+      <hr>
+      <ul>
+        {% for language in languages %}
+          <li>{{ language.language }} - {{ language.proficiency }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+  </div>
+
+</body>
+</html>

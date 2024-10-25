@@ -127,7 +127,7 @@ function createDeleteButton(parentDiv) {
           <h4>Projects</h4>
           <label>Project Name:</label>
           <input type="text" name="project_${projectsCounter}" placeholder="Enter Project name here"><br>
-          <label>Project Name:</label>
+          <label>Project Year:</label>
           <input type="text" name="projectyr_${projectsCounter}" placeholder="Enter Project year"><br>
           <label>Description</label>
           <input type="text" name="projdesc_${projectsCounter}" placeholder="Enter Project description"><br>

@@ -14,11 +14,11 @@
         <h1>{{fname}} {{lname}} </h1>
         <h2>{{role}}</h2>
         <p>
-            <!-- <span class="icon">&#xf095;</span> -->
+           
              {{phone}} &nbsp; | &nbsp;
-            <!-- <span class="icon">&#xf0e0;</span> -->
+            
              {{email}} &nbsp; | &nbsp;
-            <!-- <span class="icon">&#xf08c;</span> -->
+
              <!-- {{linkedin}}  &nbsp; | &nbsp; -->
             {{city}}, {{country}}
         </p>
@@ -43,8 +43,8 @@
                 
             {% for i in internships %}
                <div>
-                   <p><span class="bold">{{i.role}}</span> <span class="right">{{i.sintdate}}</span></p>
-                   <p>{{i.intinstitution}}</p>
+                   <p><span class="bold">{{i.intinstitution}}</span> <span class="right">{{i.sintdate}}</span></p>
+                   <p>{{i.company}}</p>
                    <p>{{i.intdesc}}</p>
                </div>
            {% endfor %}
@@ -98,11 +98,6 @@
                     <p class="bold">{{i.project}}</p>
                     <p>{{i.projectdesc}}</p>
                     {% endfor %}
-            </div>
-
-            <div class="section">
-                <h2>Templates</h2>
-                <p>{{template}}</p>
             </div>
         </div>
     </div>

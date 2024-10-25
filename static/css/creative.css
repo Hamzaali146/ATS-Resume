@@ -1,0 +1,78 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+.box{
+    display:flex;
+}
+
+.resume-container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #333;
+}
+
+header h2 {
+    color: #0073e6;
+    font-weight: normal;
+}
+
+header p {
+    margin-top: 5px;
+    color: #555;
+}
+
+.contact-info p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #666;
+}
+
+section {
+    margin: 20px 0;
+}
+
+h3 {
+    font-size: 1.8em;
+    color: #333;
+}
+
+.job-entry, .education-entry, .project-entry, .course-entry {
+    margin: 10px 0;
+}
+
+.job-entry h4, .education-entry h4, .project-entry h4, .course-entry h4 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #0073e6;
+}
+
+.job-entry p, .education-entry p, .project-entry p, .course-entry p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.skills ul, .languages ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.skills li, .languages li {
+    margin: 5px 0;
+}

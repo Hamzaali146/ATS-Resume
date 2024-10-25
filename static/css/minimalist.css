@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 1in;
+}
+
+h1, h2 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid black;
+    margin: 10px 0;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    border-bottom: 2px solid black;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.right {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
