@@ -1,7 +1,9 @@
 /* General styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body {
     background-color: #F5F5F5;
-    font-family: 'Arial', sans-serif;
+    /* font-family: 'Arial', sans-serif; */
+    font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
@@ -71,7 +73,7 @@ body {
 .analy-form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
 }
 
 .analy-form label {
@@ -81,24 +83,29 @@ body {
 
 .analy-form input[type="file"],
 .analy-form textarea {
-    padding: 10px;
-    border: 2px solid #C5C6C7;
+    padding: 10px 10px;
+    border: 1px solid #3A0CA3;
+    background-color: transparent;
+    font-family: "Poppins", sans-serif;
     border-radius: 8px;
     width: 80%;
 }
-
+.analy-form input[type="file"]::file-selector-button{
+    background-color: transparent;
+    /* padding: 10px 10px; */
+    font-weight: bold;
+    color: #3A0CA3;
+    border: 1px solid #3A0CA3;
+    border-radius: 4px;
+}
 .analy-form textarea {
     resize: none;
 }
 
 .submit-btn {
     padding: 10px 20px;
-    /* background-color: #3A0CA3; */
-    /* color: #FFF; */
-    /* border: none; */
-    /* border-radius: 5px; */
     cursor: pointer;
-    width: 456px;
+    width: 180px;
     background-color: transparent;
     /* padding: 12px 20px 12px 20px; */
     border: none;
@@ -123,7 +130,10 @@ body {
     max-height: 500px;
     /* overflow: hidden; */
 }
-
+.buttondiv{
+    display: flex;
+    gap: 12px;
+}
 #content{
     white-space: pre-wrap
 }

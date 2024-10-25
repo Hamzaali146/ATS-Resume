@@ -53,8 +53,10 @@
     
                     <label for="jobDesc">Job Description:</label>
                     <textarea id="jobDesc" name="jobDesc" rows="4" placeholder="Enter the job description"></textarea> <br>
-
-                    <button type="submit" class="submit-btn" >Analyze Now🚀</button>
+                    <div class="buttondiv">
+                        <button type="submit" class="submit-btn" >Analyze Now🚀</button>
+                        <button type="button" style="display: none;" class="printbtn submit-btn" >Print Report</button>
+                    </div>
                 </form>
             </div>
             <div class="visual-section">
@@ -65,6 +67,7 @@
         </div>
     </section>
     <script>
+
         document.querySelector('.analy-form').addEventListener('submit', async function(event) {
     event.preventDefault();
     await dabao();
@@ -83,7 +86,7 @@
                 formData.append("pdfFile",resume.files[0])
                 blogContent.innerHTML = ""
                 if (loadingCircle) {
-                    alert("update")
+                    // alert("update")
                     loadingCircle.style.display = 'inline-grid';
                     visualhead.style.display = 'none';
                 }
@@ -110,6 +113,7 @@
                 visualhead.style.display = 'block';
             }finally {
             loadingCircle.style.display = 'none'; 
+            printBtn.style.display = 'block'
             }
 
             } else{
@@ -120,46 +124,17 @@
             // alert("dsdsd")
             
         } 
-            // alert()
-        
-        // document.getElementsByClassName('submit-btn').addEventListener('click', async () => {
-
-        //     const jobDesc = document.getElementById('jobDesc').value;
-        //     const resume = document.getElementById('resume');
-        //     const blogContent = document.getElementsByClassName('visual-section');
-            
-            
-            // if(jobDesc && resume) {
-            //     // document.getElementById('loading-circle').style.display = 'block';
-            //     blogContent.innerHTML = ''; // Clear previous content
-
-            //     const endpointUrl = '/generate-blog';
-                
-            //     try {
-            //         const response = await fetch(endpointUrl, {
-            //             method: 'POST',
-            //             headers: {
-            //                 'Content-Type': 'application/json',
-            //             },
-            //             body: JSON.stringify({ jobDescription: jobDesc, resumeCon : resume })
-            //         });
-
-            //         const data = await response.json();
-
-            //         blogContent.innerHTML = data.content;
-
-            //     } catch (error) {
-            //         console.error("Error occurred:", error);
-            //         alert("Something went wrong. Please try again later.");
-                    
-            //     }
-            //     document.getElementById('loading-circle').style.display = 'none';
-            // } else {
-            //     alert("Please enter a YouTube link.");
-            // }
-
-            
-        // });
+        const printBtn = document.querySelector(".printbtn");
+        // const blogContent = document.querySelector('#content');
+        printBtn.addEventListener("click",function(){
+        let ppp = document.querySelector('#content').innerHTML
+                var myWindow = window.open('','','left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0')
+                myWindow.document.write(ppp)
+                myWindow.print();
+                myWindow.document.close();
+                myWindow.focus();
+                myWindow.print();
+        })
     </script>
 </body>
 </html>
