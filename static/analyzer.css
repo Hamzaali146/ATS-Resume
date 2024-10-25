@@ -124,6 +124,9 @@ body {
     /* overflow: hidden; */
 }
 
+#content{
+    white-space: pre-wrap
+}
 .visual-section h3 {
     color: #3A0CA3;
 }
@@ -136,17 +139,17 @@ body {
 
 #loading-circle:before,
 #loading-circle:after {
-    content: "💯"; /* Emoji displayed during loading */
-    grid-area: 1/1; /* Center the emoji in the grid */
+    content: "💯🚀"; 
+    grid-area: 1/1; 
 }
 
 #loading-circle:after {
-    animation: l10 1s infinite; /* Apply animation */
+    animation: l10 1s infinite; 
 }
 
 @keyframes l10 {
     to {
-        transform: scale(1.8); /* Increase size */
-        opacity: 0; /* Fade out */
+        transform: scale(1.8); 
+        opacity: 0; 
     }
 }

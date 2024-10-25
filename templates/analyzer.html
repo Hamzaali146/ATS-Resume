@@ -30,7 +30,7 @@
 
     <section class="content">
         <div class="palette-section">
-            <!-- Color palette side section -->
+
             <div class="palette">
                 <ul>
                     <li class="color-swatch" style="background-color: #F9A8D4;"></li>
@@ -46,11 +46,11 @@
             <div class="analy-section">
                 <h1>Analyze Your Resume through Job Description</h1>
                 <form action="" class="analy-form">
-                    <!-- Resume Upload -->
+            
                     <label for="resume">Upload Resume:</label> 
                     <input type="file" id="resume" name="resume"> <br>
 
-                    <!-- Job Description Input -->
+    
                     <label for="jobDesc">Job Description:</label>
                     <textarea id="jobDesc" name="jobDesc" rows="4" placeholder="Enter the job description"></textarea> <br>
 
@@ -58,8 +58,9 @@
                 </form>
             </div>
             <div class="visual-section">
-                <h3>Generating your magic!</h3>
-                <div style="display: none;" id="loading-circle" class="load"></div>
+                <h3 id="visualhead">Generating your magic!</h3>
+                <div id="loading-circle" class="load" style="display: none;"></div>
+                <div id="content"></div>
             </div>
         </div>
     </section>
@@ -73,18 +74,20 @@
             // alert("working")
             const jobDesc = document.getElementById('jobDesc').value;
             const resume = document.getElementById('resume');
-            const blogContent = document.querySelector('.visual-section');
+            const blogContent = document.querySelector('#content');
+            const visualhead = document.querySelector('#visualhead');
             const formData = new FormData()
             const loadingCircle = document.getElementById('loading-circle');
             if(resume && jobDesc){
                 formData.append("desc",jobDesc)
                 formData.append("pdfFile",resume.files[0])
+                blogContent.innerHTML = ""
                 if (loadingCircle) {
-                    alert("shoinh")
+                    alert("update")
                     loadingCircle.style.display = 'inline-grid';
+                    visualhead.style.display = 'none';
                 }
                 // document.getElementsByClassName('load')[0].style.display = 'block';
-                blogContent.innerHTML = ""
                 try{
                 // alert("dsds")
                 const response = await fetch("/generate",{
@@ -101,13 +104,12 @@
                     blogContent.innerHTML = "Error processing file.";
                     console.error('Error Sending File',response.statusText)
                 }
-                if (loadingCircle) {
-                    loadingCircle.style.display = 'none';
-                }
-                // document.getElementsByClassName('load')[0].style.display = 'none';
             
             } catch(error){
                 console.error("Fetch Error:",error)
+                visualhead.style.display = 'block';
+            }finally {
+            loadingCircle.style.display = 'none'; 
             }
 
             } else{
