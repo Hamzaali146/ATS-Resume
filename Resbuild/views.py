@@ -59,7 +59,7 @@ def test(request):
     language_entries = []
     internship_entries = []
     project_entries = []
-    profEntries = []
+    # profEntries = []
     for i in range(1, educationCounter+1):  
             degree = request.POST.get(f'degree_{i}', "no degree")
             institution = request.POST.get(f'institution_{i}', "no inst")
@@ -72,15 +72,24 @@ def test(request):
                 })
     for i in range(1, skillsCounter+1):  
             skill = request.POST.get(f'skills_{i}', "no skill")
-            prof = request.POST.get(f'rating_{i}', "no rating")
+            prof = int(request.POST.get(f'rating_{i}', None))
+
+            if prof>=0 and prof<=3:
+                prof+=25
+            elif prof>=4 and prof <=7:
+                prof+=50
+            else:
+                prof+=100
+            print(f"professiocscsnsns {prof} {type(prof)}")
             if skill:
                 skill_entries.append({
                     'skill': skill,
+                    'level':str(prof)
                 })
-            if prof:
-                profEntries.append({
-                    'profeciency':prof
-                })
+            # if prof:
+            #     profEntries.append({
+            #         'profeciency':prof
+            #     })
     for i in range(1,coursesCounter+1):  
             course= request.POST.get(f'course_{i}', "no course")
             cinstitution = request.POST.get(f'cinstitution_{i}', "no inst")
@@ -127,8 +136,8 @@ def test(request):
     if template =="classic":
         return render(request,'classic.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
     elif template =="savvy":
-        return render(request,'classic.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
-    return render(request,'classic.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
+        return render(request,'tech.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
+    return render(request,'tech.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
     print(f"number of education entries {education_entries}" )
 
 @csrf_exempt
