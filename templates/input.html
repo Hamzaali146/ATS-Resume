@@ -131,5 +131,35 @@
     </div>
 
     <script src="{% static 'js\input.js' %}"></script>
+    <script>
+      const template = "{{ request.session.template|escapejs }}";
+      alert("hello jeeeee")
+      alert(template)
+  function addSkill() {
+    skillsCounter++;
+    const skillsSection = document.getElementById("skills-section");
+    const div = document.createElement("div");
+    div.classList.add("skill-entry");
+    if (template === 'savvy' || template === 'bold') {
+      div.innerHTML = `
+          <input type="text" name="skills_${skillsCounter}" placeholder="Enter your skill"><br><br>
+           <div id="skillRatingSection">
+        <label for="skillRating">Rate your skills (0 to 10):</label>
+        <input type="number" name="rating_${skillsCounter}" id="skillRating" name="skillRating" min="0" max="10">
+    </div>
+      `;
+
+      }else{
+        div.innerHTML = `
+          <input type="text" name="skills_${skillsCounter}" placeholder="Enter your skill"><br><br>
+      `
+      }
+    const deleteBtn = createDeleteButton(div); // Create delete button
+    div.appendChild(deleteBtn);
+    skillsSection.appendChild(div);
+    document.getElementById("skillsCounter").value = skillsCounter;
+
+  }
+    </script>
   </body>
 </html>

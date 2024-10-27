@@ -36,20 +36,6 @@ function createDeleteButton(parentDiv) {
 }
 
   // Add dynamic skills fields
-  function addSkill() {
-    skillsCounter++;
-    const skillsSection = document.getElementById("skills-section");
-    const div = document.createElement("div");
-    div.classList.add("skill-entry");
-    div.innerHTML = `
-          <input type="text" name="skills_${skillsCounter}" placeholder="Enter your skill"><br><br>
-      `;
-    const deleteBtn = createDeleteButton(div); // Create delete button
-    div.appendChild(deleteBtn);
-    skillsSection.appendChild(div);
-    document.getElementById("skillsCounter").value = skillsCounter;
-
-  }
 
   // Add dynamic course section
   function addCourses() {
