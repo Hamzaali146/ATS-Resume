@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aboutus</title>
+    <!-- <link rel="stylesheet" href="aboutus.css"> -->
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <link rel="stylesheet" href="{% static 'css/aboutus.css' %}">
+    <style>
+        a{
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+        .btnLink{
+            text-decoration: none;
+            color: #3A0CA3;
+            font-weight: 600;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="navbar">
+                <div class="leftNav">
+                    ResumeAts
+                    <!-- <img src="{% static 'images/logoVar2.png' %}" alt=""> -->
+                </div>
+                <div class="rightNav">
+                    <ul class="menu">
+                        <li class="menuli link-71"><a href="/" class="navLinks">Home</a></li>
+                        <li class="menuli link-71"><a href="/builder" class="navLinks">Builder</a></li>
+                        <li class="menuli link-71"><a href="/analyzer" class="navLinks">Analyzer</a></li>
+                        <li class="menuli link-71"><a href="/aboutus" class="navLinks">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="responsive-container-block bigContainer">
+        <div class="responsive-container-block Container bottomContainer">
+          <div class="allText bottomText">
+            <h2 class="text-blk headingText" style="color: #3A0CA3;">
+              ResumeAts
+            </h2>
+            <p class="text-blk subHeadingText">
+              Let's Get you hired
+            </p>
+            <p class="text-blk description">
+              Welcome to ResumeATS, your ultimate destination for building standout resumes and optimizing them for applicant tracking systems (ATS).
+
+At ResumeATS, we understand the importance of a compelling resume in today's competitive job market. Our mission is to empower job seekers by providing two innovative modules: a user-friendly Resume Builder and an advanced Resume ATS Analyzer.
+            </p>
+            <a>
+              <button class="btn">
+                View More🚀
+              </button>
+            </a>
+          </div>
+          <div class="videoContainer">
+            <iframe allowfullscreen="allowfullscreen" class="mainVideo" controls="controls"  src="https://www.youtube.com/embed/8KZXA_Rnums?si=rX-ezeT6dsyH6UL8?autoplay=1&cc_load_policy=1."</iframe>
+            <img class="dotsImg image-block" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/cw3.svg">
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="footer">All rights Reserved | Powered By theboys &copy;</div>
+    </footer>
+</body>
+</html>

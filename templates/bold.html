@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link rel="stylesheet" href="{% static 'css/bold.css' %}"> 
+</head>
+<body>
+
+<div class="outerbox">
+<div class="header">
+    <h1 id="fname_lname">{{ fname }} {{ lname }}</h1>
+    {% if  role  != "" %}
+    <h3 id="role">{{ role }}</h3>
+    {% endif %}
+</div>
+
+<div class="container">
+    <div class="left-column">
+    {% if  summary  != "" %}
+        <div class="about-section">
+            <h3 class="heading">ABOUT ME</h3>
+            <p id="about_me">{{ summary }}</p>
+        </div>
+    {% endif %}
+    
+    {% if  email  != "" and  phone  != "" and city  != "" and country != ""  %}
+        <div class="contact-section">
+            <h3 class="heading">CONTACT</h3>
+            {% if  phone  != "" %}
+            <p id="phone">Phone: {{ phone }}</p>
+            {% endif %}
+            {% if  email  != "" %}
+            <p id="email">Email: {{ email }}</p>
+            {% endif %}
+            {% if  city  != "" and country != "" %}
+            <p id="location">Location: {{ city }}, {{ country }}</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+    
+   
+    <div class="right-column">
+        {% if internships %}
+        {% with first_internship=internships|first %}
+            {% if first_internship.company != "no company" %}
+                <div class="employment-section">
+                    <h2>EMPLOYMENT</h2>
+                    {% for internship in internships %}
+                        <div>
+                            <h3 class="subhead">{{ internship.intinstitution }}</h3>
+                            <p>{{ internship.company }}</p>
+                            <p>{{ internship.sintdate }} - {{ internship.lintdate }}</p>
+                            <p>{{ internship.intdesc }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            
+            
+            {% endif %}
+        {% endwith %}
+    {% endif %}
+  
+
+    {% if education %}
+    {% with first_education=education|first %}
+        {% if first_education.institution != "no institution" %}
+        <div class="education-section">
+            <h2>EDUCATION</h2>
+            {% for education in education %}
+            <div>
+                <h3 class="subhead">{{ education.degree }}</h3>
+                <p>{{ education.institution }}</p>
+                <p >{{ education.date }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+    {% endif %}
+  
+
+    {% if skill %}
+    {% with first_skill=skill|first %}
+        {% if first_skill.skill != "no skill" %}
+        <div class="skills-section">
+            <h2>SKILLS</h2>
+            {% for i in skill %}
+            <div class="skill-container">
+                    <p>{{i.skill}} 
+                        {% if i.level is not 4 %}
+                        
+                        <span class="language-bar" style="width: {{ i.level|add:10 }}px;"></span>
+                    
+                        {% endif %}
+                    </p>
+                </div>  
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+        {% endif %}
+
+
+ {% if courses %}
+    {% with first_course=courses|first %}
+        {% if first_course.course != "no course" %}
+        <div class="courses-section">
+            <h2>COURSES</h2>
+            {% for course in courses %}
+            <div>
+                <h3 class="subhead">{{ course.course }}</h3>
+                <p id="course_institution_{{ forloop.counter }}">{{ course.cinstitution }}</p>
+                <p id="course_date_{{ forloop.counter }}">{{ course.cdate }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+    {% endif %}
+
+    {% if projects %}
+    {% with first_project=projects|first %}
+        {% if first_project.project != "no project" %}
+        <div class="projects-section">
+            <h2>PROJECTS</h2>
+            {% for project in projects %}
+            <div>
+                <h3 class="subhead">{{ project.project }}</h3>
+                <p >{{ project.projectdesc }}</p>
+                <p>{{ project.projectyr }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+    {% endif %}
+
+    {% if languages %}
+    {% with first_language=languages|first %}
+        {% if first_language.language != "no language" %}
+        <div class="languages-section">
+            <h2>LANGUAGES</h2>
+            {% for language in languages %}
+            <p >{{ language.language }}
+                 <!-- <span class="language-bar" id="skill_{{ forloop.counter }}"></span>  -->
+                </p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+    {% endif %}
+    </div>
+    </div>
+</div>
+</div>
+
+</body>
+
+</html>

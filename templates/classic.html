@@ -1,113 +1,143 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resume</title>
-    <link rel="stylesheet" href="{% static 'css/classic.css' %}">
-</head>
-<body>
-
+    <link rel="stylesheet" href="{% static 'css/classic.css' %}" />
+  </head>
+  <body>
     <!-- Header -->
     <div class="center">
-        <h1>{{fname}} {{lname}} </h1>
-        <h2>{{role}}</h2>
-        <p>
-            <!-- <span class="icon">&#xf095;</span> -->
-             {{phone}} &nbsp; | &nbsp;
-            <!-- <span class="icon">&#xf0e0;</span> -->
-             {{email}} &nbsp; | &nbsp;
-            <!-- <span class="icon">&#xf08c;</span> -->
-             <!-- {{linkedin}}  &nbsp; | &nbsp; -->
-            {{city}}, {{country}}
-        </p>
+      <h1>{{fname}} {{lname}}</h1>
+      {% if role != "" %}
+      <h2>{{role}}</h2>
+      {% endif %}
+      <p>
+        {% if phone != "" %} {{phone}} &nbsp; | &nbsp; {% endif %} {% if email
+        != "" %} {{email}} &nbsp; | &nbsp; {% endif %} {% if city != "" and
+        country != "" %} {{city}}, {{country}} {% endif %}
+      </p>
     </div>
 
-    <hr>
+    <hr />
 
     <div class="two-columns">
-        <!-- Left Column -->
-        <div class="column">,
-            <div class="section">
-
-              <div class="section">
-                <h2>Professional Summary</h2>
-                <div>
-                    <p>{{summary}}</p>
-                </div>
-
+      <!-- Left Column -->
+      <div class="column">
+        ,
+        <div class="section">
+          {% if summary != "" %}
+          <div class="section">
+            <h2>Professional Summary</h2>
+            <div>
+              <p>{{summary}}</p>
             </div>
+          </div>
+          {% endif %}
 
-            <h2>Experience</h2>
-                
-            {% for i in internships %}
-               <div>
-                   <p><span class="bold">{{i.role}}</span> <span class="right">{{i.sintdate}}</span></p>
-                   <p>{{i.intinstitution}}</p>
-                   <p>{{i.intdesc}}</p>
-               </div>
-           {% endfor %}
+          {% if internships %}
+          {% with first_internship=internships|first %}
+              {% if first_internship.company != "no company" %}
+          <h2>Experience</h2>
 
-             </div>
+          {% for i in internships %}
+          <div>
+            <p>
+              <span class="bold">{{i.role}}</span>
+              <span class="right">{{i.sintdate}}</span>
+            </p>
+            <p>{{i.intinstitution}}</p>
+            <p>{{i.intdesc}}</p>
+          </div>
+          {% endfor %}
+          {% endif %}
+          {% endwith %}
+      {% endif %}
         </div>
+      </div>
 
-
-        
-        <div class="column">
-
-            <div class="section">
-                <h2>Education</h2>
-            {% for i in education %}
-                    <p><span class="bold">{{i.degree}}</span> <span class="right">{{i.date}}</span></p>
-                    <p>{{i.institution}}</p>
-             {% endfor %}
-            </div>
-
-            
-            <div class="section">
-                <h2>Courses</h2>
-                {% for i in courses%}
-                    <p><span class="bold">{{i.course}}</span>   <span class="right">{{i.cdate}}</span></p>
-                    <p>{{i.cinstitution}}</p>
-                {% endfor %}
-            </div>
-
-
-        
-            <div class="section">
-                <h2>Skills</h2>
-                {% for i in skill %}
-                    <p>{{i.skill}}</p>
-                {% endfor %}
-                    
-            </div>
-
-           
-            <div class="section">
-                <h2>Languages</h2>
-                {% for i in languages %}
-                    <p><span class="bold">{{i.language}}</span> <span class="right">{{i.proficiency}}</span></p>
-                    {% endfor %}
-            </div>
-
-            
-            <div class="section">
-                <h2>Projects</h2>
-                {% for i in projects %}
-                    <p class="bold">{{i.project}}</p>
-                    <p>{{i.projectdesc}}</p>
-                    {% endfor %}
-            </div>
-
-            <div class="section">
-                <h2>Templates</h2>
-                <p>{{template}}</p>
-            </div>
+      <div class="column">
+        {% if education %}
+        {% with first_education=education|first %}
+            {% if first_education.institution != "no institution" %}
+        <div class="section">
+          <h2>Education</h2>
+          {% for i in education %}
+          <p>
+            <span class="bold">{{i.degree}}</span>
+            <span class="right">{{i.date}}</span>
+          </p>
+          <p>{{i.institution}}</p>
+          {% endfor %}
         </div>
+        {% endif %}
+        {% endwith %}
+    {% endif %}
+
+    {% if courses %}
+    {% with first_course=courses|first %}
+        {% if first_course.course != "no course" %}
+        <div class="section">
+          <h2>Courses</h2>
+          {% for i in courses%}
+          <p>
+            <span class="bold">{{i.course}}</span>
+            <span class="right">{{i.cdate}}</span>
+          </p>
+          <p>{{i.cinstitution}}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+    {% endif %}
+
+    {% if skill %}
+    {% with first_skill=skill|first %}
+        {% if first_skill.skill != "no skill" %}
+        <div class="section">
+          <h2>Skills</h2>
+          {% for i in skill %}
+          <p>{{i.skill}}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+    {% endif %}
+
+        {% if languages %}
+        {% with first_language=languages|first %}
+            {% if first_language.language != "no language" %}
+        <div class="section">
+          <h2>Languages</h2>
+          {% for i in languages %}
+          <p>
+            <span class="bold">{{i.language}}</span>
+            <span class="right">{{i.proficiency}}</span>
+          </p>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+    {% endif %}
+
+        {% if projects %}
+        {% with first_project=projects|first %}
+            {% if first_project.project != "no project" %}
+        <div class="section">
+          <h2>Projects</h2>
+          {% for i in projects %}
+          <p class="bold">{{i.project}}</p>
+          <p>{{i.projectdesc}}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+    {% endif %}
+
+       
+      </div>
     </div>
-
-
-</body>
+  </body>
 </html>
-

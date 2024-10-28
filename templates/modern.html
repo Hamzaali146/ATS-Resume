@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume</title>
+  <link rel="stylesheet" href="{% static 'css/modern.css' %}">
+</head>
+<body>
+
+  <div class="resume-container">
+    <header>
+      <h1>{{ fname }} {{ lname }}</h1>
+      {% if  role  != "" %}
+      <p class="role">{{ role }}</p>
+      {% if  email  != "" and  phone  != "" and city  != "" and country != ""  %}
+      <div class="contact-info">
+        {% if  email  != "" %}
+        <p>Email: {{ email }}</p>
+        {% endif %}
+        {% if  phone  != "" %}
+        <p>Phone: {{ phone }}</p>
+        {% if  city  != "" and country != "" %}
+        {% endif %}
+        <p>Location: {{ city }}, {{ country }}</p>
+        {% endif %}
+       
+      </div>
+      {% endif %}
+    </header>
+    {% if  summary  != "" %}
+    <section class="summary">
+      <h2>Summary</h2>
+      <hr>
+      <p>{{ summary }}</p>
+    </section>
+    {% endif %}
+
+    {% if education %}
+    {% with first_education=education|first %}
+        {% if first_education.institution != "no institution" %}
+    <section class="education">
+      <h2>Education</h2>
+      <hr>
+      {% for education in education %}
+        <div class="education-entry">
+          <p>{{ education.degree }} - {{ education.institution }} ({{ education.date }})</p>
+        </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+    {% endwith %}
+{% endif %}
+
+    {% if internships %}
+    {% with first_internship=internships|first %}
+        {% if first_internship.company != "no company" %}
+    <section class="work-experience">
+      <h2>Work Experience</h2>
+      <hr>
+      {% for internship in internships%}
+        <div class="job">
+          <h3>{{ internship.intinstitution }}</h3>
+          <p>{{ internship.company }}</p>
+          <p>{{ internship.sintdate }} - {{ internship.lintdate }}</p>
+          <p>{{ internship.intdesc }}</p>
+        </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+    {% endwith %}
+{% endif %}
+
+    {% if skill %}
+    {% with first_skill=skill|first %}
+        {% if first_skill.skill != "no skill" %}
+    <section class="expertise">
+      <h2>Skills</h2>
+      <hr>
+      <ul>
+        {% for skill in skill %}
+          <li>{{ skill.skill }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+    {% endwith %}
+{% endif %}
+
+    {% if projects %}
+    {% with first_project=projects|first %}
+        {% if first_project.project != "no project" %}
+    <section class="projects">
+      <h2>Projects</h2>
+      <hr>
+      {% for project in projects %}
+        <div class="project-entry">
+          <p>{{ project.project }} ({{ project.projectdesc }})</p>
+        </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+    {% endwith %}
+{% endif %}
+
+    {% if courses %}
+    {% with first_course=courses|first %}
+        {% if first_course.course != "no course" %}
+    <section class="certifications">
+      <h2>Certifications</h2>
+      <hr>
+      <ul>
+        {% for course in courses %}
+          <li>{{ course.course }} - {{ course.cinstitution }} ({{ course.cdate }})</li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+    {% endwith %}
+{% endif %}
+
+    {% if languages %}
+    {% with first_language=languages|first %}
+        {% if first_language.language != "no language" %}
+    <section class="languages">
+      <h2>Languages</h2>
+      <hr>
+      <ul>
+        {% for language in languages %}
+          <li>{{ language.language }} - {{ language.proficiency }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+    {% endwith %}
+{% endif %}
+
+  </div>
+
+</body>
+</html>

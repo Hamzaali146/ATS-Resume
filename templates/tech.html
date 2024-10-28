@@ -13,20 +13,28 @@
         <!-- Header Section -->
         <div class="header">
             <h1>{{ fname }} {{ lname }}</h1>
+            {% if  role  != "" %}
             <h2>{{ role }}</h2>
+            {% endif %}
+            {% if  email  != "" or  phone  != "" %}
             <p>{{ email }} — {{ phone }} </p>
+            {% endif %}
         </div>
 
         <!-- Professional Summary Section -->
+        {% if  summary  != "" %}
         <div class="section">
             <h3>Professional Summary</h3>
-            <p>{{ summary }}</p>
+            <p>{{ summary }}</p>  
         </div>
-
+        {% endif %}
         <!-- Technical Skills Section -->
         <div class="section">
-            <h3>Technical Skills</h3>
-            <div class="skills">
+            <!-- <h3>Technical Skills</h3>
+            <div class="skills"> -->
+                {% if languages %}
+                {% with first_language=languages|first %}
+                    {% if first_language.language != "no language" %}
                 <div class="column">
                     <h3>Languages</h3>
                     {% for i in languages %}
@@ -35,24 +43,36 @@
                         </div>
                     {% endfor %}
                 </div>
+                {% endif %}
+                {% endwith %}
+            {% endif %}
         </div>
+        {% if skill %}
+        {% with first_skill=skill|first %}
+            {% if first_skill.skill != "no skill" %}
         <h3>Technical Skills</h3>
         <div class="skills">
                 <div class="column">
                     {% for i in skill %}
                         <p>{{i.skill}} 
-                            {% if i.level is not None %}
+                            {% if i.level is not 4 %}
                             <span class="bar" style="width: {{ i.level|add:10 }}px;"></span>
                             {% endif %}
                         </p>
                     {% endfor %}
                 </div>
             </div>
-            </div>
+            {% endif %}
+            {% endwith %}
+        {% endif %}   
+        
         
 
         <!-- Professional Experience Section -->
         <div class="section">
+        {% if internships %}
+        {% with first_internship=internships|first %}
+            {% if first_internship.company != "no company" %}
             <h3>Professional Experience</h3>
             {% for i in internships %}
             <div class="job">
@@ -63,8 +83,14 @@
             </div>
             {% endfor %}
         </div>
+        {% endif %}
+        {% endwith %}
+    {% endif %}
 
         <!-- Projects Section -->
+        {% if projects %}
+        {% with first_project=projects|first %}
+            {% if first_project.project != "no project" %}
         <div class="section">
             <h3>Projects</h3>
             {% for i in projects %}
@@ -81,25 +107,6 @@
 
 </body>
 
-<script>
-    // const template = "{{ request.session.interval|escapejs }}";
-    // alert(template)
-    // alert('running')
-//     template.array.forEach(element => {
-        
-//     });
-//     app.locals.proficiencyToPercent = ( {{i.proficiency}} ) => {
-//     switch ( {{i.proficiency}} ) {
-//         case 'beginner':
-//             return 33;
-//         case 'intermediate':
-//             return 66;
-//         case 'advanced':
-//             return 100;
-//         default:
-//             return 0;
-//     }
-// };
- </script>
+
 
 </html>

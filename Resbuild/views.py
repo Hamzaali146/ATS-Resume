@@ -60,19 +60,22 @@ def test(request):
     internship_entries = []
     project_entries = []
     # profEntries = []
+   
     for i in range(1, educationCounter+1):  
             degree = request.POST.get(f'degree_{i}', "no degree")
-            institution = request.POST.get(f'institution_{i}', "no inst")
+            institution = request.POST.get(f'institution_{i}', "no institution")
             date = request.POST.get(f'date_{i}', "no date")
+            grade=request.POST.get(f'grade_{i}', "no grade")
             if degree and institution and date:
                 education_entries.append({
                     'degree': degree,
                     'institution': institution,
                     'date': date,
+                    'grade':grade,
                 })
     for i in range(1, skillsCounter+1):  
             skill = request.POST.get(f'skills_{i}', "no skill")
-            prof = int(request.POST.get(f'rating_{i}', None))
+            prof = int(request.POST.get(f'rating_{i}', 4))
 
             if prof>=0 and prof<=3:
                 prof+=25
@@ -86,10 +89,6 @@ def test(request):
                     'skill': skill,
                     'level':str(prof)
                 })
-            # if prof:
-            #     profEntries.append({
-            #         'profeciency':prof
-            #     })
     for i in range(1,coursesCounter+1):  
             course= request.POST.get(f'course_{i}', "no course")
             cinstitution = request.POST.get(f'cinstitution_{i}', "no inst")
@@ -137,8 +136,16 @@ def test(request):
         return render(request,'classic.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
     elif template =="savvy":
         return render(request,'tech.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
-    return render(request,'tech.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
-    print(f"number of education entries {education_entries}" )
+    elif template =="minimalist":
+        return render(request,'minimalist.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
+    # elif template =="creative":
+    #     return render(request,'creative.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
+    elif template =="modern":
+        return render(request,'modern.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
+    elif template =="bold":
+        return render(request,'bold.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
+    return render(request,'minimalist.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
+   
 
 @csrf_exempt
 def getText(request):

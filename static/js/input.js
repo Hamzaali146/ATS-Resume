@@ -27,6 +27,8 @@ function createDeleteButton(parentDiv) {
         <input type="text" name="institution_${educationCounter}" placeholder="Enter the institution"><br>
         <label>Date:</label>
         <input type="text" name="date_${educationCounter}" placeholder="Enter the dates"><br><br>
+        <label>Grade:</label>
+        <input type="text" name="grade_${educationCounter}" placeholder="Enter your grade"><br><br>
     `;
     const deleteBtn = createDeleteButton(div);
     div.appendChild(deleteBtn);
