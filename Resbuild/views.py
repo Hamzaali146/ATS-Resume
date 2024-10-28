@@ -138,8 +138,8 @@ def test(request):
         return render(request,'tech.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
     elif template =="minimalist":
         return render(request,'minimalist.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
-    # elif template =="creative":
-    #     return render(request,'creative.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
+    elif template =="creative":
+        return render(request,'creative.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
     elif template =="modern":
         return render(request,'modern.html',{'fname':fname ,'lname':lname,'phone':phone, 'email':email,'country':country,'city':city,'summary':summary,'role':role,'education':education_entries,'skill':skill_entries,'courses':courses_entries,'languages':language_entries,'internships':internship_entries,'projects':project_entries,'template':template})
     elif template =="bold":

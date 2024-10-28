@@ -8,16 +8,22 @@
     <link rel="stylesheet" href="{% static 'css/classic.css' %}" />
   </head>
   <body>
-    <!-- Header -->
+    
     <div class="center">
       <h1>{{fname}} {{lname}}</h1>
       {% if role != "" %}
       <h2>{{role}}</h2>
       {% endif %}
       <p>
-        {% if phone != "" %} {{phone}} &nbsp; | &nbsp; {% endif %} {% if email
-        != "" %} {{email}} &nbsp; | &nbsp; {% endif %} {% if city != "" and
-        country != "" %} {{city}}, {{country}} {% endif %}
+        {% if phone != "" %}
+         {{phone}} &nbsp; | &nbsp; 
+        {% endif %}
+         {% if email != "" %}
+          {{email}} &nbsp; | &nbsp; 
+          {% endif %}
+           {% if city != "" and country != "" %}
+            {{city}}, {{country}} 
+            {% endif %}
       </p>
     </div>
 
