@@ -34,6 +34,9 @@ def analyzer(request):
 def builder(request):
     return render(request,'res_select.html')
 
+def aboutus(request):
+    return render(request,'aboutus.html')
+
 @csrf_exempt
 def test(request):
     fname = request.POST['fname']

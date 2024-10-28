@@ -8,4 +8,5 @@ urlpatterns = [
     path('builder',views.builder,name = 'builder'),
     path('builderform',views.builderform,name = 'builderform'),
     path('resume',views.test,name = 'resume'),
+    path('aboutus',views.aboutus,name = 'aboutus'),
 ]
